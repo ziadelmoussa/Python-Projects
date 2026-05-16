@@ -18,19 +18,19 @@ def start_game():
 
     print("Choose difficulty: ")
 
-    easy_mode = print("1. Easy - 10 attempts")
-    medium_mode = print("2. Medium - 7 attempts")
-    hard_mode = print("3. Hard - 5 attempts\n")
+    print("1. Easy - 10 attempts")
+    print("2. Medium - 7 attempts")
+    print("3. Hard - 5 attempts\n")
 
     mode = int(input("Type number of difficulty: "))
 
     def number_generator():
         global random_num
         random_num = random.randint(1, 100)
-        print(random_num)
+        return random_num
         print("I picked a number between 1 and 100.\n")
 
-    def number_of_trys(number):
+    def number_of_tries(number):
         for i in range(number):
             picked_number = int(input("Enter your number: "))
             if picked_number == random_num:
@@ -42,14 +42,14 @@ def start_game():
                 print("Too low!")
         return False
 
-    def no_more_trys():
+    def no_more_tries():
         print("\nYou lost! You ran out of attempts")
         print(f"The correct number was {random_num}.")
 
     if mode == 1:
         print("Easy difficulty - 10 attempts\n")
         number_generator()
-        won = number_of_trys(10)
+        won = number_of_tries(10)
         if not won:
             no_more_trys()
         play_again()
@@ -57,17 +57,17 @@ def start_game():
     elif mode == 2:
         print("Medium difficulty - 7 attempts\n")
         number_generator()
-        won = number_of_trys(7)
+        won = number_of_tries(7)
         if not won:
-            no_more_trys()
+            no_more_tries()
         play_again()
 
     elif mode == 3:
         print("Hard difficulty - 5 attempts\n")
         number_generator()
-        won = number_of_trys(5)
+        won = number_of_tries(5)
         if not won:
-            no_more_trys()
+            no_more_tries()
         play_again()
 
     else:
