@@ -25,21 +25,31 @@ def number_of_trys(number):
             print("Too high!")
         elif picked_number < random_num:
             print("Too low!")
+
+def no_more_trys():
+    if number_of_trys ==  number_of_trys:
+        print("You lost! You ran out of attempts")
         
 
 if mode == 1:
     print("Easy difficulty - 10 attempts")
     number_generator()
     number_of_trys(10)
+    if number_of_trys == number_of_trys:
+        no_more_trys()
     
 elif mode == 2:
     print("Medium difficulty - 7 attempts")
     number_generator()
     number_of_trys(7)
+    if number_of_trys == number_of_trys:
+        no_more_trys()
     
 elif mode == 3:
     print("Hard difficulty - 5 attempts")
     number_generator()
     number_of_trys(5)
+    if number_of_trys == number_of_trys:
+        no_more_trys()
 else:
     print("Enter a valid number")
