@@ -8,6 +8,14 @@ hard_mode = print("3. Hard - 5 attempts")
 
 mode = int(input("Type number of difficulty: "))
 
+def number_generator():
+    random_num = random.randint(1,100)
+    return(random_num)
+    
+def number_of_trys(number):
+    for i in range(number):
+        picked_number = int(input("Enter your number: "))
+
 if mode == 1:
     print("Easy difficulty - 10 attempts")
     
