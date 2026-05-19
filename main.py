@@ -2,6 +2,7 @@ print("Welcome to Quiz App! \n")
 
 score = 0;
 
+
 questions = [
     {
         "question": "What is the capital of France?",
@@ -35,17 +36,30 @@ questions = [
 
 ]
 
+valid_options = ["A", "B", "C", "D"]
+
+
 for num, item in enumerate(questions, 1):
     print(f"Question {num}: {item['question']}")
     
     
     for option in item['options']:
         print(option)
+    
+    
         
     print("")
-    answer = input("Enter your answer: ")
     
     
+    while True:
+        answer = input("Enter your answer: ")
+        
+        if answer.upper() not in valid_options:
+            print("Enter an option from the given")
+        else:
+            break
+    
+
     
     if answer.upper() == item['answer']:
         print("Your answer is correct!\n")
