@@ -16,3 +16,15 @@ try:
     num2 = float(input("Enter the second number: "))
 except ValueError:
     print("Please enter a number!\n")
+
+def add(num1, num2):
+    return num1+num2
+    
+def sub(num1, num2):
+    return num1-num2
+
+def mul(num1, num2):
+    return num1 * num2
+
+def div(num1, num2):
+    return num1/num2
