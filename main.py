@@ -40,7 +40,7 @@ questions = {
         {
             "question": "What is the square root of 64?",
             "options": ["A. 6", "B. 7", "C. 8", "D. 9"],
-            "answer": "B"
+            "answer": "C"
         },
         {
             "question": "How many sides does a hexagon have?",
@@ -133,7 +133,7 @@ def game():
         
         
         while True:
-            answer = input("Enter your answer: ")
+            answer = input("Enter your answer: ").upper()
             
             if answer.upper() not in valid_options:
                 print("Enter an option from the given")
@@ -149,9 +149,12 @@ def game():
             print(f"Your answer is incorrect, the answer is {item['answer']}.\n")
             
             
-    print("Quiz Finshed!\n")
-    print(f"Your score is {score}/5\n")
-    print(f"Your percentage is {(score/5)*100}%\n")
+    print("Quiz Finished!\n")
+
+    total_questions = len(active_questions)
+    
+    print(f"Your score is {score}/{total_questions}\n")
+    print(f"Your percentage is {(score/total_questions)*100}%\n")
     
     
 def reset_game():
