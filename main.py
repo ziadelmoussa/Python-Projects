@@ -28,3 +28,15 @@ def mul(num1, num2):
 
 def div(num1, num2):
     return num1/num2
+
+if op == 1:
+    print(add(num1, num2))
+elif op == 2:
+    print(sub(num1, num2))
+elif op == 3:
+    print(mul(num1, num2))
+elif op == 4:
+    print(div(num1, num2))
+elif op == 5:
+    print("Goodbye!")
+    break
