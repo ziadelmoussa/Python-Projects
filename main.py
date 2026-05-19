@@ -34,3 +34,26 @@ questions = [
     }
 
 ]
+
+for num, item in enumerate(questions, 1):
+    print(f"Question {num}: {item['question']}")
+    
+    
+    for option in item['options']:
+        print(option)
+        
+    print("")
+    answer = input("Enter your answer: ")
+    
+    
+    
+    if answer.upper() == item['answer']:
+        print("Your answer is correct!\n")
+        score += 1
+    else:
+        print(f"Your answer is incorrect, the answer is {item['answer']}.\n")
+        
+        
+print("Quiz Finshed!\n")
+print(f"Your score is {score}/5\n")
+print(f"Your percentage is {(score/5)*100}%")
