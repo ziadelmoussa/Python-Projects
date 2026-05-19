@@ -1,6 +1,5 @@
 print("Welcome to Quiz App! \n")
 
-score = 0;
 
 
 questions = [
@@ -38,36 +37,59 @@ questions = [
 
 valid_options = ["A", "B", "C", "D"]
 
-
-for num, item in enumerate(questions, 1):
-    print(f"Question {num}: {item['question']}")
+def game():
     
+    score = 0
     
-    for option in item['options']:
-        print(option)
-    
+    for num, item in enumerate(questions, 1):
+        print(f"Question {num}: {item['question']}")
+        
+        
+        for option in item['options']:
+            print(option)
+        
+        
+            
+        print("")
+        
+        
+        while True:
+            answer = input("Enter your answer: ")
+            
+            if answer.upper() not in valid_options:
+                print("Enter an option from the given")
+            else:
+                break
+        
     
         
-    print("")
-    
-    
-    while True:
-        answer = input("Enter your answer: ")
-        
-        if answer.upper() not in valid_options:
-            print("Enter an option from the given")
+        if answer.upper() == item['answer']:
+            print("Your answer is correct!\n")
+            score += 1
         else:
-            break
+            print(f"Your answer is incorrect, the answer is {item['answer']}.\n")
+            
+            
+    print("Quiz Finshed!\n")
+    print(f"Your score is {score}/5\n")
+    print(f"Your percentage is {(score/5)*100}%\n")
     
+    
+def reset_game():
+    while True:
+        game()
+        
+        while True:
+            play_again = input("Want to play again ? (Y/N): ")
+            
+            if play_again.upper() == "Y":
+                print("\nStarting a new game...\n")
+                break
+            elif play_again.upper() == "N":
+                print("\nGoodbye!")
+                return
+            else:
+                print("Enter a valid letter!")
 
-    
-    if answer.upper() == item['answer']:
-        print("Your answer is correct!\n")
-        score += 1
-    else:
-        print(f"Your answer is incorrect, the answer is {item['answer']}.\n")
-        
-        
-print("Quiz Finshed!\n")
-print(f"Your score is {score}/5\n")
-print(f"Your percentage is {(score/5)*100}%")
+
+reset_game()
