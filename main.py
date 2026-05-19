@@ -8,22 +8,22 @@ def mul(num1, num2):
     return num1 * num2
 
 def div(num1, num2):
-    try:
-        return num1/num2
-    except ZeroDivisionError:
-        return "Cannot divide by zero!"
+    if num2 == 0:
+        return None
+    return num1/num2
 
 
+print("Welcome to Calculator!\n")
 
 while True:
-    print("\nWelcome to Calculator!\n")
+
     
-    print("1. Add \n2. Subtract\n3. Multiply\n4. Divide\n5. Exit")
+    print("\n1. Add \n2. Subtract\n3. Multiply\n4. Divide\n5. Exit")
     
     
     while True:
         try:
-            op = int(input("Choose opreation: "))
+            op = int(input("\nChoose opreation: "))
             if op <= 0 or op > 5:
                 print("Please enter an opreation from the given!\n")
             else:
@@ -38,7 +38,7 @@ while True:
     
     while True:
         try:
-            num1 = float(input("Enter the first number: "))
+            num1 = float(input("\nEnter the first number: "))
             break
         except ValueError:
             print("Please enter a number!\n")
@@ -59,5 +59,10 @@ while True:
     elif op == 3:
         print(f"Answer: {mul(num1, num2)}")
     elif op == 4:
-        print(f"Answer: {div(num1, num2)}")
+        result = div(num1, num2)
+        
+        if result is None:
+            print("Cannot divide by zero!")
+        else:
+            print(f"Answer: {result}")
     
