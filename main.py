@@ -23,9 +23,9 @@ while True:
     
     while True:
         try:
-            op = int(input("\nChoose opreation: "))
-            if op <= 0 or op > 5:
-                print("Please enter an opreation from the given!\n")
+            op = int(input("\nChoose operation: "))
+            if op < 1 or op > 5:
+                print("Please enter an operation from the given!\n")
             else:
                 break
         except ValueError:
