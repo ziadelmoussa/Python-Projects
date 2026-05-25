@@ -1,7 +1,13 @@
 import json
 import os
 
-contacts_list = []
+JSON_FILE = "contacts.json"
+
+if os.path.exists(JSON_FILE) and os.path.getsize(JSON_FILE) > 0:
+    with open(JSON_FILE, "r") as file:
+        contacts_list = json.load(file)
+else:
+    contacts_list = []
 
 
 
