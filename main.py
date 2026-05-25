@@ -10,36 +10,40 @@ else:
     contacts_list = []
 
 
+def add_contact(contacts_list):
+    print("---- Add a contact ----")
 
-# Function for adding contact
-def add_contact():
-    pass
+    contact_name = input("Enter the contact name: ")
+    contact_number = int(input(f"Enter {contact_name}'s number: "))
+
+    new_contact = {
+        "name": contact_name,
+        "number": contact_number
+    }
+
+    contacts_list.append(new_contact)
+    print(f"{contact_name} has been added to your contact list!")
+
+    with open (JSON_FILE, "w") as file:
+        json.dump(contacts_list, file ,indent=4)
+    
+    return contacts_list
 
 
-# Function for viewing contact
 def view_contact():
     pass
 
-# Function for seraching contact
 def serach_contact():
     pass
 
-# Function for updating contact
 def update_contact():
     pass
 
-# Function for deleting contact
 def delete_contact():
     pass
 
 
-
-
-
-
-
-# Main function to call all functions from it
-def main():
+def main(contacts_list):
     
     print("*************\nContact Book\n*************") 
 
@@ -47,10 +51,8 @@ def main():
 
     option = int(input("Enter an option: "))
 
-
-     
     if option == 1:
-        pass
+        contacts_list = add_contact(contacts_list)
     elif option == 2:
         pass
     elif option == 3:
@@ -59,11 +61,7 @@ def main():
         pass
     elif option == 5:
         pass
-       
-    
-    
-    
 
 
 if __name__ == "__main__":
-    main()
+    main(contacts_list)
