@@ -11,7 +11,7 @@ else:
 
 
 def add_contact(contacts_list):
-    print("---- Add a contact ----")
+    print("---- Add a contact ----\n")
 
     contact_name = input("Enter the contact name: ")
     contact_number = int(input(f"Enter {contact_name}'s number: "))
@@ -30,8 +30,16 @@ def add_contact(contacts_list):
     return contacts_list
 
 
-def view_contact():
-    pass
+def view_contact(contacts_list):
+    print("---- View contacts ----\n")
+
+    for index, current_contact in enumerate(contacts_list, start= 1):
+        print(f"{index}. {current_contact['name']}: {current_contact['number']}\n")
+       
+    
+
+
+
 
 def serach_contact():
     pass
@@ -54,7 +62,7 @@ def main(contacts_list):
     if option == 1:
         contacts_list = add_contact(contacts_list)
     elif option == 2:
-        pass
+        view_contact(contacts_list)
     elif option == 3:
         pass
     elif option == 4:
