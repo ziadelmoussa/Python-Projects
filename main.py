@@ -63,13 +63,46 @@ def serach_contact(contacts_list):
 
 
 
+def update_contact(contacts_list):
+    print("---- Update contacts ----\n")
 
-def update_contact():
-    pass
+    if not contacts_list:
+        print("There are no contacts!")
+        return
+
+    for index, current_contact in enumerate(contacts_list, start= 1):
+        print(f"{index}. {current_contact['name']}: {current_contact['number']}\n")
+
+    contact_update = int(input("Enter the number of the contact you want to update: "))
+
+    actual_index =  contact_update - 1 
+
+    if 0<= actual_index < len(contacts_list):
+        name_update = input("Enter the updated name: ")
+        number_update = input("Enter the updated number: ")
+
+        contacts_list[actual_index]['name'] = name_update
+        contacts_list[actual_index]['number'] = number_update
+
+        print("Contact updated successfully!")
+
+
+        with open(JSON_FILE, "w") as file:
+            json.dump(contacts_list, file, indent=4)
+    else:
+        print("Invalid contact number!")
+    
+    return contacts_list
+    
+
+       
+
+    
 
 def delete_contact():
     pass
 
+is_running = True
 
 def main(contacts_list):
     
@@ -86,9 +119,12 @@ def main(contacts_list):
     elif option == 3:
         serach_contact(contacts_list)
     elif option == 4:
-        pass
+        contacts_list = update_contact(contacts_list)
     elif option == 5:
         pass
+    elif option == 6:
+        is_running = False
+
 
 
 if __name__ == "__main__":
