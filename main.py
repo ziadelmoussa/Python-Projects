@@ -33,16 +33,36 @@ def add_contact(contacts_list):
 def view_contact(contacts_list):
     print("---- View contacts ----\n")
 
+    if not contacts_list:
+        print("There are no contacts!")
+        return
+
     for index, current_contact in enumerate(contacts_list, start= 1):
         print(f"{index}. {current_contact['name']}: {current_contact['number']}\n")
        
+
+
+def serach_contact(contacts_list):
+    print("---- Serach contacts ----\n")
+
+    if not contacts_list:
+        print("There are no contacts!")
+        return
     
+    serach_name = input("Enter the contact you want to look up: ")
+    found = False
+
+    
+    for index, contact in enumerate(contacts_list, start= 1):
+        if serach_name in contact['name']:
+            print(f"{index}. {contact['name']}: {contact['number']}\n")
+            found = True
+    
+    if not found:
+        print(f"{serach_name} is not in the contacts list!")
 
 
 
-
-def serach_contact():
-    pass
 
 def update_contact():
     pass
@@ -64,7 +84,7 @@ def main(contacts_list):
     elif option == 2:
         view_contact(contacts_list)
     elif option == 3:
-        pass
+        serach_contact(contacts_list)
     elif option == 4:
         pass
     elif option == 5:
