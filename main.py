@@ -97,14 +97,47 @@ def update_contact(contacts_list):
 
        
 
+
+def delete_contact(contacts_list):
+    print("---- Delete contacts ----\n")
+
+    if not contacts_list:
+        print("There are no contacts!")
+        return
+
+    for index, current_contact in enumerate(contacts_list, start= 1):
+        print(f"{index}. {current_contact['name']}: {current_contact['number']}\n")
+
+    remove_contact = int(input("Enter the number of the contact you want to delete: "))
+
+    actual_index =  remove_contact - 1 
+
+    if 0<= actual_index < len(contacts_list):
+        removed_contact = contacts_list.pop(actual_index)
+        print(f"\nSuccessfully deleted: '{removed_contact['name']}'")
+
+        with open (JSON_FILE, "w") as file:
+            json.dump(contacts_list, file, indent=4)
+    else:
+        print("Invalid task number!")
+    return contacts_list
+
+
+
+
     
 
-def delete_contact():
-    pass
+    
 
-is_running = True
+
+
+
+
+
 
 def main(contacts_list):
+    is_running = True
+
     
     print("*************\nContact Book\n*************") 
 
@@ -121,7 +154,7 @@ def main(contacts_list):
     elif option == 4:
         contacts_list = update_contact(contacts_list)
     elif option == 5:
-        pass
+        contacts_list = delete_contact(contacts_list)
     elif option == 6:
         is_running = False
 
