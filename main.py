@@ -10,15 +10,17 @@ if os.path.exists(JSON_FILE) and os.path.getsize(JSON_FILE) > 0:
 else:
     contacts_list = []
 
+
 def display_all_contacts(contacts_list):
     if not contacts_list:
         print("There are no contacts!")
-        return False  # Signals that nothing was displayed
+        return False  
 
     for index, current_contact in enumerate(contacts_list, start=1):
         print(f"{index}.Name:{current_contact['name']}\nNumber:{current_contact['number']}\nEmail:{current_contact['email']}\n")
     
-    return True  # Signals that contacts were displayed successfully
+    return True  
+
 
 def add_contact(contacts_list):
     print("---- Add a contact ----\n")
@@ -28,16 +30,15 @@ def add_contact(contacts_list):
     if contact_name == "<":
         return contacts_list
 
-    
     while True:
         num_input = input(f"Enter {contact_name}'s number: ")
         if num_input == "<":
             return contacts_list
         if num_input.isdigit():
-            contact_number = int(num_input)
+            
+            contact_number = num_input
             break
         print("Invalid number! Please enter digits only.\n")
-    
     
     while True:
         contact_email = input(f"Enter {contact_name}'s email (e.g., name@email.com): ")
@@ -66,30 +67,29 @@ def add_contact(contacts_list):
 
 def view_contact(contacts_list):
     print("---- View contacts ----\n")
-
     display_all_contacts(contacts_list)
 
 
-def serach_contact(contacts_list):
+def search_contact(contacts_list):
     print("---- Search contacts ----\n")
 
     if not contacts_list:
         print("There are no contacts!")
         return
     
-    serach_name = input("Enter the contact you want to look up: ").capitalize()
+    search_name = input("Enter the contact you want to look up: ").capitalize()
     found = False
 
-    if serach_name == "<":
+    if search_name == "<":
         return
     
     for index, contact in enumerate(contacts_list, start=1):
-        if serach_name in contact['name']:
+        if search_name in contact['name']:
             print(f"\n{index}.Name:{contact['name']}\nNumber:{contact['number']}\nEmail:{contact['email']}\n")
             found = True
     
     if not found:
-        print(f"{serach_name} is not in the contacts list!")
+        print(f"{search_name} is not in the contacts list!")
 
 
 def update_contact(contacts_list):
@@ -115,14 +115,12 @@ def update_contact(contacts_list):
         name_update = input("Enter the updated name: ").capitalize()
         if name_update == "<": return contacts_list
         
-        
         while True:
             number_update = input("Enter the updated number: ")
             if number_update == "<": return contacts_list
             if number_update.isdigit():
                 break
             print("Invalid number! Please enter digits only.\n")
-        
         
         while True:
             email_update = input("Enter the updated email (e.g., name@email.com): ")
@@ -134,7 +132,8 @@ def update_contact(contacts_list):
             print("Invalid email format! Please try again.\n")
 
         contacts_list[actual_index]['name'] = name_update
-        contacts_list[actual_index]['number'] = int(number_update)
+        
+        contacts_list[actual_index]['number'] = number_update
         contacts_list[actual_index]['email'] = email_update
 
         print("Contact updated successfully!")
@@ -202,7 +201,7 @@ def main(contacts_list):
         elif option == 2:
             view_contact(contacts_list)
         elif option == 3:
-            serach_contact(contacts_list)
+            search_contact(contacts_list)
         elif option == 4:
             contacts_list = update_contact(contacts_list)
         elif option == 5:
