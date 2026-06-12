@@ -37,7 +37,7 @@ def view_expenses():
 
     print("\n--- Tracked Expenses ---")
 
-    for index, expense in enumerate(expenses):
+    for index, expense in enumerate(expenses, start=1):
         print(f"{index}. Amount: ${expense['amount']} | Category: {expense['category']} | Description: {expense['description']}")
     print() 
     return True
