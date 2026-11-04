@@ -1,0 +1,14 @@
+[
+    {
+        "task": "Finish coding this project",
+        "status": "Complete"
+    },
+    {
+        "task": "Attend meeting at 10 a.m",
+        "status": "Incomplete"
+    },
+    {
+        "task": "leet code",
+        "status": "Incomplete"
+    }
+]
