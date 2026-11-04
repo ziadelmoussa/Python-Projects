@@ -1,0 +1,17 @@
+[
+    {
+        "amount": 200.0,
+        "category": "school",
+        "description": "fees for school"
+    },
+    {
+        "amount": 50.0,
+        "category": "personal",
+        "description": "eating out"
+    },
+    {
+        "amount": 10.0,
+        "category": "school",
+        "description": "lunch at school"
+    }
+]
