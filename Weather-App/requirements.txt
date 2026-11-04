@@ -1,0 +1,2 @@
+# No external packages are required.
+# This app uses only Python built-in libraries.
